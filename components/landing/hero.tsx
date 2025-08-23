@@ -6,6 +6,15 @@ import TailwindCSS from '@/components/icons/tailwindcss';
 import { BrowseComponentsButton } from '../ui/browse-button';
 import { BrowseBlocksButton } from '../ui/browse-blocks';
 import Features from './features';
+import Link from 'next/link';
+import AIInput_02 from '../componentcraftui/ai-input/ai-input-02';
+import Btn03 from '../componentcraftui/buttons/btn-03';
+import Input_05 from '../componentcraftui/input/input-05';
+import Card08 from '../componentcraftui/card/card-08';
+import Card02 from '../componentcraftui/card/card-02';
+import ActionSearchBar from '../componentcraftui/action-search-bar';
+
+
 
 const HeroSection = () => {
   return (
@@ -13,6 +22,7 @@ const HeroSection = () => {
     lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 
     sm:px-6 py-12 md:py-16 lg:py-20'>
 
+        {/* Left side styling and CTA */}
         <div className='w-full lg:w-[45%] flex-col items-start  text-left space-y-8'>        
         <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -56,6 +66,84 @@ const HeroSection = () => {
 
         <Features/>
         </div>
+
+        {/* Right side - Components Layout */}
+        <div className="w-full lg:w-[55%] flex flex-col justify-between gap-6 lg:pl-8">
+        {/* Top row: Card + Action Search Bar */}
+            <motion.div
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center"
+            >
+            {/* Card component */}
+            <div className="w-full flex flex-col items-center justify-center ">
+                <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+                {"<Card/>"}
+                </span>
+                <Card08 href="/docs/components/card" />
+            </div>
+
+            {/* Action Search Bar */}
+            <div className="w-full max-w-[600px] bg-transparent">
+                <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+                Components
+                </span>
+                {/* <ActionSearchBar
+                                defaultOpen={true}
+                            /> */}
+                <Card02 />
+            </div>
+            </motion.div>
+                    {/* Middle row: AI Chat */}
+            <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-full"
+            >
+            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+                AI Chat
+            </span>
+            {/* <AIInput_04 /> */}
+            <div className="w-full h-48 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                <AIInput_02/>
+            </div>
+            </motion.div>
+
+            {/* Bottom row: Buttons on left, Input on right */}
+            <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="w-full grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+            {/* Left side - Buttons */}
+            <div className="w-full">
+                <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+                Buttons
+                </span>
+                <div className="w-full h-48 rounded-xl  border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center gap-3">
+                <Link href="/docs/components/button">
+                    {/* <Btn14 label="Bring me" className=" w-42 py-5" /> */}
+                </Link>
+                <Link href="/docs/components/button">
+                    <Btn03 className=" w-42 py-5" />
+                </Link>
+                </div>
+            </div>
+
+            {/* Right side - Input */}
+            <div className="w-full">
+                <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+                Input
+                </span>
+                <Link href="/docs/components/input">
+                <Input_05 />
+                </Link>
+            </div>
+            </motion.div>
+        </div>        
     </div>
   )
 }
