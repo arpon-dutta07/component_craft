@@ -1,0 +1,12 @@
+{
+  "name": "dashboard-dashboard",
+  "type": "registry:component",
+  "files": [
+    {
+      "type": "registry:component",
+      "content": "import Content from \"./content\";\nimport Layout from \"./layout\";\n\nexport default function Dashboard() {\n    return (\n        <div data-theme=\"dark\">\n            <Layout>\n                <Content />\n            </Layout>\n        </div>\n    );\n}\n",
+      "path": "/components/componentcraftui/blocks/dashboard/dashboard.tsx",
+      "target": "/components/componentcraft/dashboard.tsx"
+    }
+  ]
+}
