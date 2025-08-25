@@ -6,8 +6,8 @@ import { motion } from "motion/react";
 interface BouncingTextProps {
     text?: string;
     className?: string;
-    delay?: number;
-    bouncingIndices?: number[];
+    delay?: number; // Delay between letters
+    bouncingIndices?: number[]; // Which letters bounce
 }
 
 export default function Text_05({
@@ -16,57 +16,29 @@ export default function Text_05({
     delay = 0.1,
     bouncingIndices = [0, 2, 5],
 }: BouncingTextProps) {
-    const letterAnimation = {
-        initial: { y: 0 },
-        animate: {
-            y: [-8, 0],
-            scaleY: [0.9, 1],
-            scaleX: [1.1, 1],
-            transition: {
-                y: {
-                    type: "spring",
-                    damping: 10,
-                    stiffness: 100,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                    duration: 1.2,
-                },
-                scaleY: {
-                    type: "spring",
-                    damping: 10,
-                    stiffness: 100,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                    duration: 1.2,
-                },
-                scaleX: {
-                    type: "spring",
-                    damping: 10,
-                    stiffness: 100,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                    duration: 1.2,
-                },
-            },
-        },
-    };
-
     return (
         <div className="flex items-center justify-center gap-[2px]">
             {text.split("").map((letter, index) =>
                 bouncingIndices.includes(index) ? (
                     <motion.span
-                        key={`text-05-${letter}`}
+                        key={`text-05-${letter}-${index}`}
                         className={cn(
                             "text-4xl font-bold text-black dark:text-white",
                             "transition-colors duration-200",
                             "hover:text-purple-500 dark:hover:text-purple-400",
                             className
                         )}
-                        variants={letterAnimation}
-                        initial="initial"
-                        animate="animate"
+                        initial={{ y: 0, scaleY: 1, scaleX: 1 }}
+                        animate={{
+                            y: [-8, 0],
+                            scaleY: [0.9, 1],
+                            scaleX: [1.1, 1],
+                        }}
                         transition={{
+                            duration: 1.2,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                            ease: "easeInOut",
                             delay: index * delay,
                         }}
                         whileHover={{
@@ -78,7 +50,7 @@ export default function Text_05({
                     </motion.span>
                 ) : (
                     <span
-                        key={`text-05-1-${letter}`}
+                        key={`text-05-static-${letter}-${index}`}
                         className={cn(
                             "text-4xl font-bold text-black dark:text-white",
                             "transition-colors duration-200",
