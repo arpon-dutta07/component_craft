@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Github, Zap } from "lucide-react";
-import AIInput_04 from "@/components/codesnippetui/ai-input/ai-input-04";
+import AIInput_04 from "@/components/componentcraftui/ai-input/ai-input-04";
 
 function Header() {
     return (
