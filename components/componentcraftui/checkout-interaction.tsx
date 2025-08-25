@@ -6,7 +6,7 @@ import { Minus, Plus, ShoppingCart, X, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import NumberFlow from "@number-flow/react";
+import NumberFlow from "@/components/ui/number-flow";
 
 interface Product {
     id: string;
