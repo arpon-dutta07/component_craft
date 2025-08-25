@@ -1177,18 +1177,6 @@ export const component: Registry = [
         ],
     },
     {
-        name: "toolbar",
-        type: "registry:component",
-        dependencies: ["lucide-react", "motion"],
-        registryDependencies: [],
-        files: [
-            {
-                path: "components/componentcraftui/toolbar.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
-    {
         name: "beams-background",
         type: "registry:component",
         dependencies: ["motion"],
