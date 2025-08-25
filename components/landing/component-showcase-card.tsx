@@ -1,8 +1,8 @@
-import Input_10 from "@/components/codesnippetui/input/input-10";
-import Alert04 from "@/components/codesnippetui/alert/alert-04";
-import Input_08 from "@/components/codesnippetui/input/input-08";
-import Btn12 from "@/components/codesnippetui/button/btn-12";
-import Btn13 from "@/components/codesnippetui/button/btn-13";
+import Input_10 from "@/components/componentcraftui/input/input-10";
+import Alert04 from "@/components/componentcraftui/alert/alert-04";
+import Input_08 from "@/components/componentcraftui/input/input-08";
+import Btn12 from "../componentcraftui/buttons/btn-12";
+import Btn13 from "@/components/componentcraftui/buttons/btn-13";
 
 interface ComponentShowcaseCardProps {
     className: string;
