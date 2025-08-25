@@ -1,0 +1,15 @@
+{
+  "name": "ai-chat-ai-chat",
+  "type": "registry:component",
+  "files": [
+    {
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\nimport { MultimodalInput } from \"./multimodal-input\";\n\nexport default function AiChat() {\n    return (\n        <div className=\"w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-black via-zinc-900 to-black dark:from-black dark:via-zinc-800/40 dark:to-black px-4\">\n            <div className=\"w-full p-4 flex flex-col items-center justify-center h-screen mx-auto\">\n                <motion.div\n                    initial={{ opacity: 0 }}\n                    animate={{ opacity: 1 }}\n                    transition={{ duration: 0.7 }}\n                    className={cn(\"text-center mb-10\", \"opacity-100 scale-100\")}\n                >\n                    <h1 className=\"text-5xl md:text-6xl font-medium mb-4 tracking-tighter bg-clip-text bg-gradient-to-b from-black to-black/70 text-white\">\n                        Welcome Traveler\n                    </h1>\n                    <p className=\"text-xl text-zinc-400\">\n                        What can I do for you today?\n                    </p>\n                </motion.div>\n\n                <motion.div\n                    initial={{ opacity: 0 }}\n                    animate={{ opacity: 1 }}\n                    transition={{ duration: 0.7 }}\n                    className={cn(\n                        \"w-full rounded-2xl relative overflow-hidden\",\n                        \"h-0 overflow-hidden\"\n                    )}\n                >\n                    <div className=\"relative p-6\">\n                        <div className=\"flex flex-col gap-4\">\n                            {/* Put messages here */}\n                        </div>\n                        <div className=\"shrink-0 min-w-[24px] min-h-[24px]\" />\n                    </div>\n                </motion.div>\n\n                <motion.form\n                    initial={{ opacity: 0 }}\n                    animate={{ opacity: 1 }}\n                    transition={{ duration: 0.7 }}\n                    className=\"w-full max-w-3xl px-4 md:px-0 mt-6\"\n                >\n                    <div className=\"relative backdrop-blur-xl rounded-xl\">\n                        <MultimodalInput />\n                    </div>\n                </motion.form>\n            </div>\n        </div>\n    );\n}\n",
+      "path": "/components/componentcraftui/blocks/ai-chat/ai-chat.tsx",
+      "target": "/components/componentcraft/ai-chat.tsx"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ]
+}
