@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, Variants, cubicBezier } from "framer-motion"; // ✅ correct imports
 import { cn } from "@/lib/utils";
 import {
   Filter,
@@ -43,30 +43,30 @@ const buttonVariants = {
   }),
 };
 
-const spanVariants = {
+const spanVariants: Variants = {
   initial: { width: 0, opacity: 0 },
   animate: { width: "auto", opacity: 1 },
   exit: { width: 0, opacity: 0 },
 };
 
-const notificationVariants = {
+const notificationVariants: Variants = {
   initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: -10 },
   exit: { opacity: 0, y: -20 },
 };
 
-// ✅ Fixed easing (Framer Motion v11 doesn't support string ease)
-const lineVariants = {
+// ✅ Fixed easing with framer-motion cubicBezier()
+const lineVariants: Variants = {
   initial: { scaleX: 0, x: "-50%" },
   animate: {
     scaleX: 1,
     x: "0%",
-    transition: { duration: 0.2, ease: [0.42, 0, 0.58, 1] }, // ✅ cubic-bezier
+    transition: { duration: 0.2, ease: cubicBezier(0.42, 0, 0.58, 1) }, // ✅ correct type
   },
   exit: {
     scaleX: 0,
     x: "50%",
-    transition: { duration: 0.2, ease: [0.42, 0, 0.58, 1] }, // ✅ same easing
+    transition: { duration: 0.2, ease: cubicBezier(0.42, 0, 0.58, 1) }, // ✅ same easing
   },
 };
 
