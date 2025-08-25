@@ -1,0 +1,16 @@
+{
+  "name": "ai-input-08",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "type": "registry:component",
+      "content": "\"use client\"\r\n\r\nimport { ArrowUp, Mic } from \"lucide-react\"\r\nimport { useState } from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { Textarea } from \"@/components/ui/textarea\"\r\nimport { useAutoResizeTextarea } from \"@/hooks/use-auto-resize-textarea\"\r\n\r\n// Minimal outline style with clean borders\r\nexport default function AIInput_08() {\r\n  const { textareaRef, adjustHeight } = useAutoResizeTextarea({\r\n    minHeight: 48,\r\n    maxHeight: 200,\r\n  })\r\n  const [inputValue, setInputValue] = useState(\"\")\r\n  const [isFocused, setIsFocused] = useState(false)\r\n\r\n  const handleSubmit = () => {\r\n    if (inputValue.trim()) {\r\n      console.log(\"Submitted:\", inputValue)\r\n      setInputValue(\"\")\r\n      adjustHeight(true)\r\n    }\r\n  }\r\n\r\n  return (\r\n    <div className=\"w-full py-4\">\r\n      <div className=\"relative max-w-xl w-full mx-auto\">\r\n        <Textarea\r\n          placeholder=\"Type your message here...\"\r\n          className={cn(\r\n            \"bg-transparent border-2 rounded-xl pl-4 pr-20\",\r\n            \"placeholder:text-gray-400 dark:placeholder:text-gray-500\",\r\n            \"text-gray-900 dark:text-white\",\r\n            \"transition-all duration-200\",\r\n            \"min-h-[48px] max-h-[200px] resize-none overflow-y-auto\",\r\n            isFocused\r\n              ? \"border-blue-500 shadow-sm\"\r\n              : \"border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600\",\r\n          )}\r\n          ref={textareaRef}\r\n          value={inputValue}\r\n          onFocus={() => setIsFocused(true)}\r\n          onBlur={() => setIsFocused(false)}\r\n          onChange={(e) => {\r\n            setInputValue(e.target.value)\r\n            adjustHeight()\r\n          }}\r\n          onKeyDown={(e) => {\r\n            if (e.key === \"Enter\" && !e.shiftKey) {\r\n              e.preventDefault()\r\n              handleSubmit()\r\n            }\r\n          }}\r\n        />\r\n\r\n        <div className=\"absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1\">\r\n          <button className=\"p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors\">\r\n            <Mic className=\"w-4 h-4 text-gray-500 dark:text-gray-400\" />\r\n          </button>\r\n\r\n          <button\r\n            onClick={handleSubmit}\r\n            disabled={!inputValue.trim()}\r\n            className={cn(\r\n              \"p-2 rounded-lg transition-all\",\r\n              inputValue.trim()\r\n                ? \"bg-blue-500 text-white hover:bg-blue-600 shadow-sm\"\r\n                : \"bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed\",\r\n            )}\r\n          >\r\n            <ArrowUp className=\"w-4 h-4\" />\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  )\r\n}\r\n",
+      "path": "/components/componentcraftui/ai-input/ai-input-08.tsx",
+      "target": "/components/componentcraft/ai-input-08.tsx"
+    }
+  ]
+}
