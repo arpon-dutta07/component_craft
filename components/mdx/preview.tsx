@@ -19,7 +19,7 @@ interface PreviewProps {
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "https://component-craft-psi.vercel.app/";
+  : "https://ui.codesnipet.com";
 
 
 
