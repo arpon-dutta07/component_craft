@@ -1,0 +1,15 @@
+{
+  "name": "dashboard-content",
+  "type": "registry:component",
+  "files": [
+    {
+      "type": "registry:component",
+      "content": "import { Calendar, CreditCard, Wallet } from \"lucide-react\";\nimport List01 from \"./list-01\";\nimport List02 from \"./list-02\";\nimport List03 from \"./list-03\";\n\nexport default function () {\n    return (\n        <div className=\"space-y-4\">\n            <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-6\">\n                <div className=\"bg-white dark:bg-[#0F0F12] rounded-xl p-6 flex flex-col border border-gray-200 dark:border-[#1F1F23]\">\n                    <h2 className=\"text-lg font-bold text-gray-900 dark:text-white mb-4 text-left flex items-center gap-2 \">\n                        <Wallet className=\"w-3.5 h-3.5 text-zinc-900 dark:text-zinc-50\" />\n                        Accounts\n                    </h2>\n                    <div className=\"flex-1\">\n                        <List01 className=\"h-full\" />\n                    </div>\n                </div>\n                <div className=\"bg-white dark:bg-[#0F0F12] rounded-xl p-6 flex flex-col border border-gray-200 dark:border-[#1F1F23]\">\n                    <h2 className=\"text-lg font-bold text-gray-900 dark:text-white mb-4 text-left flex items-center gap-2\">\n                        <CreditCard className=\"w-3.5 h-3.5 text-zinc-900 dark:text-zinc-50\" />\n                        Recent Transactions\n                    </h2>\n                    <div className=\"flex-1\">\n                        <List02 className=\"h-full\" />\n                    </div>\n                </div>\n            </div>\n\n            <div className=\"bg-white dark:bg-[#0F0F12] rounded-xl p-6 flex flex-col items-start justify-start border border-gray-200 dark:border-[#1F1F23]\">\n                <h2 className=\"text-lg font-bold text-gray-900 dark:text-white mb-4 text-left flex items-center gap-2\">\n                    <Calendar className=\"w-3.5 h-3.5 text-zinc-900 dark:text-zinc-50\" />\n                    Upcoming Events\n                </h2>\n                <List03 />\n            </div>\n        </div>\n    );\n}\n",
+      "path": "components/componentcraftui/blocks/dashboard/content.tsx",
+      "target": "components/componentcraft/content.tsx"
+    }
+  ],
+  "dependencies": [
+    "lucide-react"
+  ]
+}
