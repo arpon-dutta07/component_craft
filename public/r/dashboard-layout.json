@@ -5,8 +5,8 @@
     {
       "type": "registry:component",
       "content": "import type { ReactNode } from \"react\";\nimport Sidebar from \"./sidebar\";\nimport TopNav from \"./top-nav\";\n\ninterface LayoutProps {\n    children: ReactNode;\n}\n\nexport default function Layout({ children }: LayoutProps) {\n    return (\n        <div className=\"flex h-screen\">\n            <Sidebar />\n            <div className=\"w-full flex flex-1 flex-col\">\n                <header className=\"h-16 border-b border-gray-200 dark:border-[#1F1F23]\">\n                    <TopNav />\n                </header>\n                <main className=\"flex-1 overflow-auto p-6\">{children}</main>\n            </div>\n        </div>\n    );\n}\n",
-      "path": "/components/componentcraftui/blocks/dashboard/layout.tsx",
-      "target": "/components/componentcraft/layout.tsx"
+      "path": "components/componentcraftui/blocks/dashboard/layout.tsx",
+      "target": "components/componentcraft/layout.tsx"
     }
   ]
 }

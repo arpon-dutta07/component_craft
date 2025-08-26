@@ -44,7 +44,7 @@ async function writeFileRecursive(filePath: string, data: string) {
 const getComponentFiles = async (files: File[], registryType: string) => {
     const filesArrayPromises = (files ?? []).map(async (file) => {
         if (typeof file === "string") {
-            const normalizedPath = file.startsWith("/") ? file : `/${file}`;
+            const normalizedPath = file.startsWith("/") ? file.slice(1) : file;
             const filePath = path.join(REGISTRY_BASE_PATH, normalizedPath);
             const fileContent = await fs.readFile(filePath, "utf-8");
             
@@ -54,12 +54,12 @@ const getComponentFiles = async (files: File[], registryType: string) => {
                 type: registryType,
                 content: fileContent,
                 path: normalizedPath,
-                target: `/components/componentcraft/${fileName}`,
+                target: `components/componentcraft/${fileName}`,
             };
         }
         const normalizedPath = file.path.startsWith("/")
-            ? file.path
-            : `/${file.path}`;
+            ? file.path.slice(1)
+            : file.path;
         const filePath = path.join(REGISTRY_BASE_PATH, normalizedPath);
         const fileContent = await fs.readFile(filePath, "utf-8");
         
@@ -68,13 +68,13 @@ const getComponentFiles = async (files: File[], registryType: string) => {
         const getTargetPath = (type: string) => {
             switch (type) {
                 case "registry:hook":
-                    return `/hooks/${fileName}`;
+                    return `hooks/${fileName}`;
                 case "registry:lib":
-                    return `/lib/${fileName}`;
+                    return `lib/${fileName}`;
                 case "registry:block":
-                    return `/blocks/${fileName}`;
+                    return `blocks/${fileName}`;
                 default:
-                    return `/components/componentcraft/${fileName}`;
+                    return `components/componentcraft/${fileName}`;
             }
         };
         

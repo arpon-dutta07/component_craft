@@ -166,8 +166,8 @@ async function generateComponentJSON(filePath: string): Promise<void> {
             {
                 type: "registry:component",
                 content: content,
-                path: `/${filePath}`,
-                target: `/components/componentcraft/${fileName}`
+                path: `${filePath}`,
+                target: `components/componentcraft/${fileName}`
             }
         ];
 
@@ -179,8 +179,8 @@ async function generateComponentJSON(filePath: string): Promise<void> {
                 files.push({
                     type: "registry:hook",
                     content: hookContent,
-                    path: `/${hook}`,
-                    target: `/${hook}`
+                    path: `${hook}`,
+                    target: `${hook}`
                 });
             } catch (hookError) {
                 console.warn(`Could not read hook file ${hook}:`, hookError);
