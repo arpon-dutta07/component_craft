@@ -1523,17 +1523,6 @@ export const generatedComponents: Registry = [
         ],
     },
     {
-        name: "toolbar",
-        type: "registry:component",
-        dependencies: ["motion"],
-        files: [
-            {
-                path: "components/componentcraftui/toolbar.tsx",
-                type: "registry:component",
-            }
-        ],
-    },
-    {
         name: "tweet-card",
         type: "registry:component",
         dependencies: ["lucide-react"],
