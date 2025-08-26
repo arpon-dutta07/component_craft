@@ -5,8 +5,8 @@
     {
       "type": "registry:component",
       "content": "import React from \"react\";\nimport { AlertCircle } from \"lucide-react\";\n\ninterface ErrorProps {\n    error: string;\n}\n\nexport const ErrorGeneration = ({ error }: ErrorProps) => {\n    return (\n        <div className=\"m-4 px-4 py-3 flex items-center gap-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/10 rounded-xl\">\n            <AlertCircle className=\"w-4 h-4 shrink-0\" />\n            <p>{error}</p>\n        </div>\n    );\n};",
-      "path": "/components/componentcraftui/blocks/ai-card-generation/error-generation.tsx",
-      "target": "/components/componentcraft/error-generation.tsx"
+      "path": "components/componentcraftui/blocks/ai-card-generation/error-generation.tsx",
+      "target": "components/componentcraft/error-generation.tsx"
     }
   ],
   "dependencies": [
