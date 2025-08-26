@@ -57,26 +57,14 @@ export default function PreviewContent({link,prePath,isBlock = false,}: {
 
     const handleTerminalClick = () => {
         const [folder, filename] = link.split("/");
-        const COPY = `bunx shadcn@latest add ${prePath}/r/${
+        const COPY = `npx shadcn add ${prePath}/r/${
             filename ? filename : folder
         }.json`;
-        // This constructs a command string to copy to clipboard.
-        // ${prePath} → some base path variable.
-        // ${filename ? filename : folder} →
-        // If filename exists → use it, else use folder.
-        // .json → adds .json at the end.
         navigator.clipboard.writeText(COPY);
-        // navigator.clipboard.writeText(COPY);
-        // This copies the COPY string to your system clipboard.
-        // So now the user can paste it in terminal (Ctrl + V) and run the command.
         setIsTerminalCopied(true);
-        // Updates a React state variable to show that copy was successful.
-        // Usually used to show a success message like "Copied!".
         setTimeout(() => {
             setIsTerminalCopied(false);
         }, 1000);
-        // After 1 second, the success message will disappear.
-        // This message will appear after the component has successfully copied the link to the clipboard.
     };
 
     const openInV0 = () => {
