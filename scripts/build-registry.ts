@@ -30,7 +30,8 @@ async function scanComponentCraftUIFolder(): Promise<any[]> {
                 if (parentDir === 'componentcraftui') {
                     componentName = name;
                 } else {
-                    componentName = `${parentDir}-${name}`;
+                    // For subdirectories, use the file name only (e.g., alert-01 instead of alert-alert-01)
+                    componentName = name;
                 }
                 
                 registry.push({
