@@ -9,12 +9,6 @@
       "target": "components/componentcraft/currency-transfer.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button",
-    "card"
-  ]
+  "category": "component",
+  "description": "currency-transfer component"
 }

@@ -9,11 +9,7 @@
       "target": "components/componentcraft/top-nav.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "dropdown-menu"
-  ]
+  "category": "dashboard",
+  "subcategory": "component",
+  "description": "dashboard-top-nav component"
 }

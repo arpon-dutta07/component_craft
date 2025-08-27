@@ -9,7 +9,7 @@
       "target": "components/componentcraft/card-03.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ]
+  "category": "card",
+  "subcategory": "component",
+  "description": "card-card-03 component"
 }

@@ -9,7 +9,7 @@
       "target": "components/componentcraft/alert-07.tsx"
     }
   ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "alert",
+  "subcategory": "component",
+  "description": "alert-alert-07 component"
 }

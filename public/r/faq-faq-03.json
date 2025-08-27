@@ -9,9 +9,7 @@
       "target": "components/componentcraft/faq-03.tsx"
     }
   ],
-  "registryDependencies": [
-    "button",
-    "accordion",
-    "badge"
-  ]
+  "category": "faq",
+  "subcategory": "component",
+  "description": "faq-faq-03 component"
 }

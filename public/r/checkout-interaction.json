@@ -9,11 +9,6 @@
       "target": "components/componentcraft/checkout-interaction.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "component",
+  "description": "checkout-interaction component"
 }

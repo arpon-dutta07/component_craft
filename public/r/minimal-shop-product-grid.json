@@ -9,7 +9,7 @@
       "target": "components/componentcraft/product-grid.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "minimal-shop",
+  "subcategory": "component",
+  "description": "minimal-shop-product-grid component"
 }

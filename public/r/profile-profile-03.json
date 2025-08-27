@@ -9,13 +9,7 @@
       "target": "components/componentcraft/profile-03.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "input",
-    "textarea",
-    "avatar"
-  ]
+  "category": "profile",
+  "subcategory": "component",
+  "description": "profile-profile-03 component"
 }

@@ -9,7 +9,6 @@
       "target": "components/componentcraft/hero-geometric.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "component",
+  "description": "hero-geometric component"
 }

@@ -9,7 +9,7 @@
       "target": "components/componentcraft/list-01.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ]
+  "category": "list",
+  "subcategory": "component",
+  "description": "list-list-01 component"
 }

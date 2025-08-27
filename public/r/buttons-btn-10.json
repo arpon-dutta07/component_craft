@@ -9,10 +9,7 @@
       "target": "components/componentcraft/btn-10.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "buttons",
+  "subcategory": "component",
+  "description": "buttons-btn-10 component"
 }

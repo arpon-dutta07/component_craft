@@ -9,8 +9,7 @@
       "target": "components/componentcraft/profile-05.tsx"
     }
   ],
-  "registryDependencies": [
-    "button",
-    "badge"
-  ]
+  "category": "profile",
+  "subcategory": "component",
+  "description": "profile-profile-05 component"
 }

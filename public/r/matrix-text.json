@@ -9,7 +9,6 @@
       "target": "components/componentcraft/matrix-text.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "component",
+  "description": "matrix-text component"
 }

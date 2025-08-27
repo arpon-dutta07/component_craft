@@ -9,10 +9,7 @@
       "target": "components/componentcraft/error-generation.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "alert"
-  ]
+  "category": "ai-card-generation",
+  "subcategory": "component",
+  "description": "ai-card-generation-error-generation component"
 }

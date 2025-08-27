@@ -9,7 +9,7 @@
       "target": "components/componentcraft/text-04.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "text",
+  "subcategory": "component",
+  "description": "text-text-04 component"
 }

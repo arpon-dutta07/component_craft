@@ -9,10 +9,7 @@
       "target": "components/componentcraft/list-05.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "list",
+  "subcategory": "component",
+  "description": "list-list-05 component"
 }

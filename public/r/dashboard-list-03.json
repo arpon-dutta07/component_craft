@@ -9,7 +9,7 @@
       "target": "components/componentcraft/list-03.tsx"
     }
   ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "dashboard",
+  "subcategory": "component",
+  "description": "dashboard-list-03 component"
 }

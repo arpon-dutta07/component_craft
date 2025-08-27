@@ -9,7 +9,7 @@
       "target": "components/componentcraft/input-06.tsx"
     }
   ],
-  "registryDependencies": [
-    "input"
-  ]
+  "category": "input",
+  "subcategory": "component",
+  "description": "input-input-06 component"
 }

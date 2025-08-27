@@ -9,7 +9,7 @@
       "target": "components/componentcraft/card-01.tsx"
     }
   ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "card",
+  "subcategory": "component",
+  "description": "card-card-01 component"
 }

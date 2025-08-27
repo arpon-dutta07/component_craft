@@ -9,8 +9,7 @@
       "target": "components/componentcraft/input-04.tsx"
     }
   ],
-  "registryDependencies": [
-    "button",
-    "input"
-  ]
+  "category": "input",
+  "subcategory": "component",
+  "description": "input-input-04 component"
 }

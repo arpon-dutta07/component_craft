@@ -9,7 +9,6 @@
       "target": "components/componentcraft/particles-background.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "component",
+  "description": "particles-background component"
 }

@@ -8,5 +8,8 @@
       "path": "components/componentcraftui/list/list-04.tsx",
       "target": "components/componentcraft/list-04.tsx"
     }
-  ]
+  ],
+  "category": "list",
+  "subcategory": "component",
+  "description": "list-list-04 component"
 }

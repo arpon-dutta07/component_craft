@@ -9,11 +9,7 @@
       "target": "components/componentcraft/faq-02.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "faq",
+  "subcategory": "component",
+  "description": "faq-faq-02 component"
 }

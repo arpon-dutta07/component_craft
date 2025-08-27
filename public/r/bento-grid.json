@@ -8,5 +8,7 @@
       "path": "components/componentcraftui/bento-grid.tsx",
       "target": "components/componentcraft/bento-grid.tsx"
     }
-  ]
+  ],
+  "category": "component",
+  "description": "bento-grid component"
 }

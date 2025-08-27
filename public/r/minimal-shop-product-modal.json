@@ -9,11 +9,7 @@
       "target": "components/componentcraft/product-modal.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "minimal-shop",
+  "subcategory": "component",
+  "description": "minimal-shop-product-modal component"
 }

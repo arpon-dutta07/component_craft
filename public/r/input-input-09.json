@@ -9,10 +9,7 @@
       "target": "components/componentcraft/input-09.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "input",
+  "subcategory": "component",
+  "description": "input-input-09 component"
 }

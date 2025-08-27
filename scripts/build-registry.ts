@@ -1,17 +1,53 @@
-import { component } from "../registry/registry-components";
-import { hooks } from "../registry/registry-hooks";
-import { lib } from "../registry/registry-lib";
-import { block } from "../registry/registry-blocks";
 import { promises as fs } from "fs";
 import type { z } from "zod";
 import { registryItemFileSchema } from "@/registry/schema";
 import path from "path";
 
-// Aggregate all registry entries (components, hooks, lib, blocks)
-const registry = [...component, ...hooks, ...lib, ...block];
-
 const REGISTRY_BASE_PATH = process.cwd();
 const PUBLIC_FOLDER_BASE_PATH = "public/r";
+const COMPONENTCRAFTUI_PATH = "components/componentcraftui";
+
+// Function to scan componentcraftui folder and create registry entries
+async function scanComponentCraftUIFolder(): Promise<any[]> {
+    const componentcraftuiPath = path.join(REGISTRY_BASE_PATH, COMPONENTCRAFTUI_PATH);
+    const registry: any[] = [];
+    
+    async function scanDirectory(dir: string, baseName = ""): Promise<void> {
+        const entries = await fs.readdir(dir, { withFileTypes: true });
+        
+        for (const entry of entries) {
+            const fullPath = path.join(dir, entry.name);
+            const relativePath = path.relative(REGISTRY_BASE_PATH, fullPath);
+            
+            if (entry.isDirectory()) {
+                await scanDirectory(fullPath, entry.name);
+            } else if (entry.isFile() && entry.name.endsWith('.tsx')) {
+                const name = entry.name.replace('.tsx', '');
+                const parentDir = path.basename(dir);
+                
+                // Create component name based on directory structure
+                let componentName: string;
+                if (parentDir === 'componentcraftui') {
+                    componentName = name;
+                } else {
+                    componentName = `${parentDir}-${name}`;
+                }
+                
+                registry.push({
+                    name: componentName,
+                    type: "registry:component",
+                    files: [relativePath.replace(/\\/g, '/')],
+                    category: parentDir === 'componentcraftui' ? 'component' : parentDir,
+                    subcategory: parentDir === 'componentcraftui' ? undefined : 'component',
+                    description: `${componentName} component`,
+                });
+            }
+        }
+    }
+    
+    await scanDirectory(componentcraftuiPath);
+    return registry;
+}
 
 // const REGISTRY_TYPE_FOLDERS: Record<string, string> = {
 //     "registry:component": "components",
@@ -93,6 +129,9 @@ const getComponentFiles = async (files: File[], registryType: string) => {
 };
 
 const main = async () => {
+    // Get all components from componentcraftui folder
+    const registry = await scanComponentCraftUIFolder();
+    
     for (let i = 0; i < registry.length; i++) {
         const component = registry[i];
         const files = component.files;
@@ -110,7 +149,7 @@ const main = async () => {
         );
         const jsonPath = `${PUBLIC_FOLDER_BASE_PATH}/${component.name}.json`;
         await writeFileRecursive(jsonPath, json);
-        console.log(json);
+        console.log(`Generated: ${component.name}.json`);
     }
 };
 

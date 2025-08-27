@@ -9,7 +9,7 @@
       "target": "components/componentcraft/alert-03.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ]
+  "category": "alert",
+  "subcategory": "component",
+  "description": "alert-alert-03 component"
 }

@@ -9,7 +9,7 @@
       "target": "components/componentcraft/profile-01.tsx"
     }
   ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "dashboard",
+  "subcategory": "component",
+  "description": "dashboard-profile-01 component"
 }

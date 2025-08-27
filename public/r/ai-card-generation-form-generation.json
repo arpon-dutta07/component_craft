@@ -9,11 +9,7 @@
       "target": "components/componentcraft/form-generation.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "input"
-  ]
+  "category": "ai-card-generation",
+  "subcategory": "component",
+  "description": "ai-card-generation-form-generation component"
 }

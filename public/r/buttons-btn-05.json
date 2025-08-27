@@ -9,11 +9,7 @@
       "target": "components/componentcraft/btn-05.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "buttons",
+  "subcategory": "component",
+  "description": "buttons-btn-05 component"
 }

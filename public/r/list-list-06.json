@@ -9,11 +9,7 @@
       "target": "components/componentcraft/list-06.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "input"
-  ]
+  "category": "list",
+  "subcategory": "component",
+  "description": "list-list-06 component"
 }

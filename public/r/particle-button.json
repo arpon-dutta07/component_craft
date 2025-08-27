@@ -9,11 +9,6 @@
       "target": "components/componentcraft/particle-button.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "component",
+  "description": "particle-button component"
 }

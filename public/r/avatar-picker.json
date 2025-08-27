@@ -9,11 +9,6 @@
       "target": "components/componentcraft/avatar-picker.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ],
-  "registryDependencies": [
-    "card",
-    "avatar"
-  ]
+  "category": "component",
+  "description": "avatar-picker component"
 }

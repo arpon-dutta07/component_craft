@@ -9,7 +9,7 @@
       "target": "components/componentcraft/pricing-01.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "pricing",
+  "subcategory": "component",
+  "description": "pricing-pricing-01 component"
 }

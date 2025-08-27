@@ -9,11 +9,6 @@
       "target": "components/componentcraft/background-circles.tsx"
     }
   ],
-  "dependencies": [
-    "motion",
-    "clsx"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "component",
+  "description": "background-circles component"
 }

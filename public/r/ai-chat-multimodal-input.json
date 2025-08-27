@@ -9,12 +9,7 @@
       "target": "components/componentcraft/multimodal-input.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button",
-    "textarea"
-  ]
+  "category": "ai-chat",
+  "subcategory": "component",
+  "description": "ai-chat-multimodal-input component"
 }

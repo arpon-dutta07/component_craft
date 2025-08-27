@@ -9,10 +9,7 @@
       "target": "components/componentcraft/profile-02.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "profile",
+  "subcategory": "component",
+  "description": "profile-profile-02 component"
 }

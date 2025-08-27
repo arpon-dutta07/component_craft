@@ -9,7 +9,7 @@
       "target": "components/componentcraft/list-02.tsx"
     }
   ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "list",
+  "subcategory": "component",
+  "description": "list-list-02 component"
 }

@@ -9,7 +9,7 @@
       "target": "components/componentcraft/minimal-shop.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "minimal-shop",
+  "subcategory": "component",
+  "description": "minimal-shop-minimal-shop component"
 }

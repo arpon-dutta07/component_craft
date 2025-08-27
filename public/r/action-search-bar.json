@@ -9,11 +9,6 @@
       "target": "components/componentcraft/action-search-bar.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ],
-  "registryDependencies": [
-    "input",
-    "badge"
-  ]
+  "category": "component",
+  "description": "action-search-bar component"
 }

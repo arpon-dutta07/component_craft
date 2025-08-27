@@ -9,12 +9,7 @@
       "target": "components/componentcraft/profile-04.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "progress",
-    "badge"
-  ]
+  "category": "profile",
+  "subcategory": "component",
+  "description": "profile-profile-04 component"
 }

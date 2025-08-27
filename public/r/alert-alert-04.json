@@ -9,8 +9,7 @@
       "target": "components/componentcraft/alert-04.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ]
+  "category": "alert",
+  "subcategory": "component",
+  "description": "alert-alert-04 component"
 }

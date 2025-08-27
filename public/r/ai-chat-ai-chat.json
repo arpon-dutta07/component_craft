@@ -9,7 +9,7 @@
       "target": "components/componentcraft/ai-chat.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "ai-chat",
+  "subcategory": "component",
+  "description": "ai-chat-ai-chat component"
 }

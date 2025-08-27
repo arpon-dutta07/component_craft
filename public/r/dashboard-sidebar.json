@@ -9,10 +9,7 @@
       "target": "components/componentcraft/sidebar.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "dashboard",
+  "subcategory": "component",
+  "description": "dashboard-sidebar component"
 }

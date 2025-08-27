@@ -9,10 +9,7 @@
       "target": "components/componentcraft/preview-generation.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "card"
-  ]
+  "category": "ai-card-generation",
+  "subcategory": "component",
+  "description": "ai-card-generation-preview-generation component"
 }

@@ -9,10 +9,6 @@
       "target": "components/componentcraft/tweet-card.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "component",
+  "description": "tweet-card component"
 }

@@ -9,7 +9,7 @@
       "target": "components/componentcraft/content.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ]
+  "category": "dashboard",
+  "subcategory": "component",
+  "description": "dashboard-content component"
 }

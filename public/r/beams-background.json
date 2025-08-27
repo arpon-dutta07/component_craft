@@ -9,7 +9,6 @@
       "target": "components/componentcraft/beams-background.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "component",
+  "description": "beams-background component"
 }

@@ -9,11 +9,7 @@
       "target": "components/componentcraft/input-01.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "input"
-  ]
+  "category": "input",
+  "subcategory": "component",
+  "description": "input-input-01 component"
 }

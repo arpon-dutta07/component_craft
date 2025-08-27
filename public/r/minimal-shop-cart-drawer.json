@@ -9,11 +9,7 @@
       "target": "components/componentcraft/cart-drawer.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "minimal-shop",
+  "subcategory": "component",
+  "description": "minimal-shop-cart-drawer component"
 }

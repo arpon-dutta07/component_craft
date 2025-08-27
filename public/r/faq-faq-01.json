@@ -9,12 +9,7 @@
       "target": "components/componentcraft/faq-01.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "input",
-    "accordion",
-    "badge"
-  ]
+  "category": "faq",
+  "subcategory": "component",
+  "description": "faq-faq-01 component"
 }

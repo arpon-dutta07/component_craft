@@ -9,12 +9,7 @@
       "target": "components/componentcraft/top-bar.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react",
-    "motion"
-  ],
-  "registryDependencies": [
-    "button",
-    "input"
-  ]
+  "category": "minimal-shop",
+  "subcategory": "component",
+  "description": "minimal-shop-top-bar component"
 }

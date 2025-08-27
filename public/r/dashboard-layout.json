@@ -8,5 +8,8 @@
       "path": "components/componentcraftui/blocks/dashboard/layout.tsx",
       "target": "components/componentcraft/layout.tsx"
     }
-  ]
+  ],
+  "category": "dashboard",
+  "subcategory": "component",
+  "description": "dashboard-layout component"
 }

@@ -9,7 +9,6 @@
       "target": "components/componentcraft/hand-written-title.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ]
+  "category": "component",
+  "description": "hand-written-title component"
 }

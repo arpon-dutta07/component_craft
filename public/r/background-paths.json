@@ -9,10 +9,6 @@
       "target": "components/componentcraft/background-paths.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "component",
+  "description": "background-paths component"
 }

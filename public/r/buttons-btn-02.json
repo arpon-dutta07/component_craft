@@ -9,7 +9,7 @@
       "target": "components/componentcraft/btn-02.tsx"
     }
   ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "buttons",
+  "subcategory": "component",
+  "description": "buttons-btn-02 component"
 }

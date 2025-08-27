@@ -9,8 +9,7 @@
       "target": "components/componentcraft/ai-card-generation.tsx"
     }
   ],
-  "registryDependencies": [
-    "button",
-    "card"
-  ]
+  "category": "ai-card-generation",
+  "subcategory": "component",
+  "description": "ai-card-generation-ai-card-generation component"
 }

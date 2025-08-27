@@ -8,5 +8,8 @@
       "path": "components/componentcraftui/blocks/ai-card-generation/header-generation.tsx",
       "target": "components/componentcraft/header-generation.tsx"
     }
-  ]
+  ],
+  "category": "ai-card-generation",
+  "subcategory": "component",
+  "description": "ai-card-generation-header-generation component"
 }

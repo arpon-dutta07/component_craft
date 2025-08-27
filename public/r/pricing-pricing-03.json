@@ -9,10 +9,7 @@
       "target": "components/componentcraft/pricing-03.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button"
-  ]
+  "category": "pricing",
+  "subcategory": "component",
+  "description": "pricing-pricing-03 component"
 }

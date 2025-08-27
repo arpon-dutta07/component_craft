@@ -9,11 +9,7 @@
       "target": "components/componentcraft/card-10.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "progress"
-  ]
+  "category": "card",
+  "subcategory": "component",
+  "description": "card-card-10 component"
 }

@@ -9,11 +9,7 @@
       "target": "components/componentcraft/social-login.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "separator"
-  ]
+  "category": "auth-basic",
+  "subcategory": "component",
+  "description": "auth-basic-social-login component"
 }

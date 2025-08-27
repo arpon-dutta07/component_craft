@@ -9,11 +9,7 @@
       "target": "components/componentcraft/auth-form.tsx"
     }
   ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button",
-    "input"
-  ]
+  "category": "auth-basic",
+  "subcategory": "component",
+  "description": "auth-basic-auth-form component"
 }

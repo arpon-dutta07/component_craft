@@ -9,7 +9,7 @@
       "target": "components/componentcraft/settings-generation.tsx"
     }
   ],
-  "registryDependencies": [
-    "select"
-  ]
+  "category": "ai-card-generation",
+  "subcategory": "component",
+  "description": "ai-card-generation-settings-generation component"
 }

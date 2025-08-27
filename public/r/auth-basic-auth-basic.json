@@ -9,7 +9,7 @@
       "target": "components/componentcraft/auth-basic.tsx"
     }
   ],
-  "registryDependencies": [
-    "card"
-  ]
+  "category": "auth-basic",
+  "subcategory": "component",
+  "description": "auth-basic-auth-basic component"
 }
