@@ -1,5 +1,4 @@
 import type { Registry } from "./schema";
-import { generatedComponents } from "./generated-registry";
 
 export const component: Registry = [
     {
@@ -1212,5 +1211,5 @@ export const component: Registry = [
             },
         ],
     },
-    ...generatedComponents,
+
 ];
