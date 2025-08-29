@@ -27,7 +27,7 @@ const Header = () => {
             <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 opacity-40 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
             <div className="relative z-10 flex items-center gap-2">
               <span className="text-white dark:text-zinc-900">
-                CodeSnippetUI Pro
+                ComponentCraft Pro
               </span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" />
             </div>
