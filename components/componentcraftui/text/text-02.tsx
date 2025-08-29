@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 
 // Unique: Floating characters with subtle per-letter bob and stagger; polished and playful.
-export default function Text_05() {
+export default function Text_02() {
   const text = "Floating Characters"
   return (
     <div className="bg-black text-white w-full flex items-center justify-center py-10 px-6">
@@ -16,7 +16,7 @@ export default function Text_05() {
           hidden: {},
           show: { transition: { staggerChildren: 0.035 } },
         }}
-        aria-label={text}
+        aria-label="Floating Characters"
         role="heading"
         aria-level={1}
       >
