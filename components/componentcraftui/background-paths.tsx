@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useReducedMotion, Variants } from "framer-motion"
+import { motion, useReducedMotion, type Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
 
 const wordsContainer: Variants = {
@@ -43,40 +43,59 @@ function FloatingPaths({ position }: { position: number }) {
 
   return (
     <div className="absolute inset-0 pointer-events-none">
-      <svg className="w-full h-full text-white" viewBox="0 0 696 316" fill="none" aria-hidden="true">
+      <svg
+        className="w-full h-full text-lime-400"
+        viewBox="0 0 696 316"
+        fill="none"
+        aria-hidden="true"
+        shapeRendering="geometricPrecision"
+      >
         <title>Background Paths</title>
-        {paths.map((path, i) => (
-          <motion.path
-            key={path.id}
-            d={path.d}
-            stroke="currentColor"
-            strokeWidth={path.width}
-            strokeLinecap="round"
-            strokeOpacity={0.08 + i * 0.015}
-            vectorEffect="non-scaling-stroke"
-            initial={{ pathLength: 0.6, pathOffset: 0, opacity: 0.4 }}
-            animate={
-              prefersReducedMotion
-                ? { opacity: 0.35 }
-                : {
-                    pathLength: [0.6, 1, 0.6],
-                    pathOffset: [0, 0.08, 0],
-                    opacity: [0.35, 0.6, 0.35],
-                  }
-            }
-            transition={
-              prefersReducedMotion
-                ? { duration: 0 }
-                : {
-                    duration: 16 + i * 0.25,
-                    delay: i * 0.03,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "mirror",
-                    ease: "easeInOut",
-                  }
-            }
-          />
-        ))}
+        <defs>
+          {/* subtle neon glow */}
+          <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2.25" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* rotate around center to change perceived flow direction */}
+        <g filter="url(#neon-glow)" transform="rotate(-30 348 158)">
+          {paths.map((path, i) => (
+            <motion.path
+              key={path.id}
+              d={path.d}
+              stroke="currentColor"
+              strokeWidth={path.width}
+              strokeLinecap="round"
+              strokeOpacity={0.08 + i * 0.015}
+              vectorEffect="non-scaling-stroke"
+              initial={{ pathLength: 0.92, pathOffset: 0, opacity: 0.5 }}
+              animate={
+                prefersReducedMotion
+                  ? { opacity: 0.4 }
+                  : {
+                      pathLength: 0.92,
+                      pathOffset: position > 0 ? [0, 1] : [1, 0],
+                    }
+              }
+              transition={
+                prefersReducedMotion
+                  ? { duration: 0 }
+                  : {
+                      duration: 38 + i * 0.4,
+                      delay: i * 0.06,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatDelay: 0,
+                      ease: "linear",
+                    }
+              }
+            />
+          ))}
+        </g>
       </svg>
     </div>
   )
@@ -90,7 +109,7 @@ export default function BackgroundPaths({
   const words = title.split(" ")
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-neutral-950 text-white">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black text-white">
       <div className="absolute inset-0">
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
@@ -119,10 +138,10 @@ export default function BackgroundPaths({
           <div className="inline-flex">
             <Button
               className="group inline-flex items-center rounded-[1.15rem] px-8 py-6 text-lg font-semibold
-                         bg-cyan-600 hover:bg-cyan-500 text-white
+                         bg-lime-400 hover:bg-lime-300 text-black
                          transition-colors duration-200 focus-visible:outline-none
-                         focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2
-                         focus-visible:ring-offset-neutral-950"
+                         focus-visible:ring-2 focus-visible:ring-lime-400 focus-visible:ring-offset-2
+                         focus-visible:ring-offset-black"
             >
               <span className="opacity-100">Get Started</span>
               <span className="ml-3 transition-transform duration-200 group-hover:translate-x-1">→</span>
