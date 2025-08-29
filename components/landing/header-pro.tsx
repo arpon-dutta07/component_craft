@@ -56,7 +56,7 @@ export function HeaderPro() {
           </span>
 
           <span className="flex md:hidden items-center gap-2">
-            {content.productName === "CodeSnippet UI Pro" ? (
+            {content.productName === "ComponentCraft Pro" ? (
               <PartyPopper className="w-4 h-4 text-fuchsia-500" />
             ) : (
               <Rocket className="w-4 h-4 text-fuchsia-500" />
