@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion"
 
-export default function Text_10({ text = "Letter Hover" }: { text?: string }) {
+export default function Text_04({ text = "Letter Hover" }: { text?: string }) {
   const chars = Array.from(text)
   return (
     <span className="inline-flex select-none">
