@@ -1,58 +1,22 @@
-"use client";
+// Unique: Letter-by-letter hover lift with cyan tint.
+"use client"
 
-import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
+import { motion } from "framer-motion"
 
-interface AnimatedTextProps {
-    text?: string;
-    className?: string;
-    shadowColors?: {
-        first?: string;
-        second?: string;
-        third?: string;
-        fourth?: string;
-        glow?: string;
-    };
-}
-
-export default function Text_04({
-    text = "LINE",
-    className = "",
-    shadowColors = {
-        first: "#07bccc",
-        second: "#e601c0",
-        third: "#e9019a",
-        fourth: "#f40468",
-        glow: "#f40468",
-    },
-}: AnimatedTextProps) {
-    const textShadowStyle = {
-        textShadow: `10px 10px 0px ${shadowColors.first}, 
-                     15px 15px 0px ${shadowColors.second}, 
-                     20px 20px 0px ${shadowColors.third}, 
-                     25px 25px 0px ${shadowColors.fourth}, 
-                     45px 45px 10px ${shadowColors.glow}`,
-    };
-
-    const noShadowStyle = {
-        textShadow: "none",
-    };
-
-    return (
-        <div className="w-full text-center">
-            <motion.div
-                className={cn(
-                    "w-full text-center cursor-pointer text-3xl font-bold",
-                    "transition-all duration-200 ease-in-out tracking-widest",
-                    "text-black dark:text-white italic",
-                    "stroke-[#d6f4f4]",
-                    className
-                )}
-                style={textShadowStyle}
-                whileHover={noShadowStyle}
-            >
-                {text}
-            </motion.div>
-        </div>
-    );
+export default function Text_10({ text = "Letter Hover" }: { text?: string }) {
+  const chars = Array.from(text)
+  return (
+    <span className="inline-flex select-none">
+      {chars.map((c, i) => (
+        <motion.span
+          key={i}
+          className="font-sans text-4xl md:text-6xl font-semibold text-white"
+          whileHover={{ y: -4, color: "rgb(34 211 238)" }}
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        >
+          {c === " " ? "\u00A0" : c}
+        </motion.span>
+      ))}
+    </span>
+  )
 }

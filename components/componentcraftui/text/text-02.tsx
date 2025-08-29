@@ -1,71 +1,45 @@
-"use client";
+"use client"
 
-import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
+import { motion } from "framer-motion"
 
-interface TextSplitProps {
-    text: string;
-    className?: string;
-    containerClassName?: string;
-    splitSpacing?: number;
+// Unique: Floating characters with subtle per-letter bob and stagger; polished and playful.
+export default function Text_05() {
+  const text = "Floating Characters"
+  return (
+    <div className="bg-black text-white w-full flex items-center justify-center py-10 px-6">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="flex gap-0.5 sm:gap-1 md:gap-1.5"
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.035 } },
+        }}
+        aria-label={text}
+        role="heading"
+        aria-level={1}
+      >
+        {text.split("").map((char, i) => (
+          <motion.span
+            key={i}
+            className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold leading-none"
+            variants={{
+              hidden: { y: 8, opacity: 0 },
+              show: { y: [0, -3, 0], opacity: 1 },
+            }}
+            transition={{
+              duration: 0.9,
+              ease: "easeInOut",
+              repeat: Number.POSITIVE_INFINITY,
+              repeatDelay: 2 + i * 0.001,
+            }}
+            style={{ display: "inline-block" }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+      </motion.div>
+    </div>
+  )
 }
-
-const Text_02: React.FC<TextSplitProps> = ({
-    text = "Payout fees",
-    className = "",
-    containerClassName = "",
-    splitSpacing = 2,
-}) => {
-    return (
-        <motion.div
-            className={cn(
-                "w-full text-center relative inline-block",
-                containerClassName
-            )}
-            whileHover="hover"
-            initial="default"
-        >
-            <motion.div
-                className={cn("absolute w-full text-4xl -ml-0.5", className)}
-                variants={{
-                    default: {
-                        clipPath: "inset(0 0 50% 0)",
-                        y: -splitSpacing / 2,
-                        opacity: 1,
-                    },
-                    hover: {
-                        clipPath: "inset(0 0 0 0)",
-                        y: 0,
-                        opacity: 0,
-                    },
-                }}
-                transition={{ duration: 0.1 }}
-            >
-                {text}
-            </motion.div>
-            <motion.div
-                className={cn("absolute w-full text-4xl", className)}
-                variants={{
-                    default: {
-                        clipPath: "inset(50% 0 0 0)",
-                        y: splitSpacing / 2,
-                        opacity: 1,
-                    },
-                    hover: {
-                        clipPath: "inset(0 0 0 0)",
-                        y: 0,
-                        opacity: 1,
-                    },
-                }}
-                transition={{ duration: 0.1 }}
-            >
-                {text}
-            </motion.div>
-
-            {/* Hidden text for maintaining layout size */}
-            <div className={cn("invisible text-4xl", className)}>{text}</div>
-        </motion.div>
-    );
-};
-
-export default Text_02;

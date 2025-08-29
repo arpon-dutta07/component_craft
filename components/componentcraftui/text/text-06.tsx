@@ -1,67 +1,35 @@
-import { cn } from "@/lib/utils";
+// Unique: Morphs between words using Framer Motion crossfade.
+"use client"
 
-interface SwooshTextProps {
-    text?: string;
-    className?: string;
-}
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
+import { useEffect, useState } from "react"
 
-export default function Text_06({
-    text = "HONGDAE",
-    className = "",
-}: SwooshTextProps) {
-    return (
-        <div className="relative w-full text-center">
-            <svg className="absolute w-0 h-0">
-                <title>Motion Blur Filter</title>
-                <defs>
-                    <filter id="motion-blur" filterUnits="userSpaceOnUse">
-                        <feGaussianBlur stdDeviation="2 0" />
-                        <feOffset dx="-6" />
-                        <feBlend in="SourceGraphic" mode="normal" />
-                    </filter>
-                </defs>
-            </svg>
+const WORDS = ["Morphing", "Switching", "Adapting", "Evolving"]
 
-            <div
-                className={cn(
-                    "relative text-3xl font-bold text-black dark:text-white",
-                    className
-                )}
-            >
-                <div className="absolute inset-0 opacity-5 flex flex-col justify-center gap-4">
-                    <span
-                        className="absolute right-[55%] top-[15%] h-2"
-                        style={{
-                            width: "30%",
-                            filter: "url(#motion-blur)",
-                            transform: "translateX(-6px)",
-                            background:
-                                "linear-gradient(to left, currentColor, transparent)",
-                        }}
-                    />
-                    <span
-                        className="absolute right-[55%] top-[40%] h-2"
-                        style={{
-                            width: "27%",
-                            filter: "url(#motion-blur)",
-                            transform: "translateX(-6px)",
-                            background:
-                                "linear-gradient(to left, currentColor, transparent)",
-                        }}
-                    />
-                    <span
-                        className="absolute right-[55%] top-[65%] h-2"
-                        style={{
-                            width: "25%",
-                            filter: "url(#motion-blur)",
-                            transform: "translateX(-6px)",
-                            background:
-                                "linear-gradient(to left, currentColor, transparent)",
-                        }}
-                    />
-                </div>
-                <span className="relative italic text-emerald-400">{text}</span>
-            </div>
-        </div>
-    );
+export default function Text_06({ text }: { text?: string }) {
+  const prefersReducedMotion = useReducedMotion()
+  const items = text ? text.split("|") : WORDS
+  const [i, setI] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setI((v) => (v + 1) % items.length), 2000)
+    return () => clearInterval(id)
+  }, [items.length])
+
+  return (
+    <div className="relative inline-block min-w-[8ch] select-none">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={items[i]}
+          className="font-sans text-4xl md:text-6xl font-semibold text-white"
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={prefersReducedMotion ? {} : { opacity: 0, y: -8 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: "easeOut" }}
+        >
+          {items[i]}
+        </motion.span>
+      </AnimatePresence>
+    </div>
+  )
 }
