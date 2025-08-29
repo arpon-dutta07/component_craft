@@ -43,18 +43,12 @@ function FloatingPaths({ position }: { position: number }) {
 
   return (
     <div className="absolute inset-0 pointer-events-none">
-      <svg
-        className="w-full h-full text-lime-400"
-        viewBox="0 0 696 316"
-        fill="none"
-        aria-hidden="true"
-        shapeRendering="geometricPrecision"
-      >
+      <svg className="w-full h-full text-lime-400" viewBox="0 0 696 316" fill="none" aria-hidden="true">
         <title>Background Paths</title>
         <defs>
           {/* subtle neon glow */}
           <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2.25" result="blur" />
+            <feGaussianBlur stdDeviation="3" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -63,7 +57,7 @@ function FloatingPaths({ position }: { position: number }) {
         </defs>
 
         {/* rotate around center to change perceived flow direction */}
-        <g filter="url(#neon-glow)" transform="rotate(-30 348 158)">
+        <g filter="url(#neon-glow)" transform="rotate(90 348 158)">
           {paths.map((path, i) => (
             <motion.path
               key={path.id}
@@ -73,24 +67,25 @@ function FloatingPaths({ position }: { position: number }) {
               strokeLinecap="round"
               strokeOpacity={0.08 + i * 0.015}
               vectorEffect="non-scaling-stroke"
-              initial={{ pathLength: 0.92, pathOffset: 0, opacity: 0.5 }}
+              initial={{ pathLength: 0.6, pathOffset: 0, opacity: 0.4 }}
               animate={
                 prefersReducedMotion
-                  ? { opacity: 0.4 }
+                  ? { opacity: 0.35 }
                   : {
-                      pathLength: 0.92,
-                      pathOffset: position > 0 ? [0, 1] : [1, 0],
+                      pathLength: [0.6, 1, 0.6],
+                      pathOffset: position > 0 ? [0, 0.08, 0] : [0, -0.08, 0],
+                      opacity: [0.35, 0.6, 0.35],
                     }
               }
               transition={
                 prefersReducedMotion
                   ? { duration: 0 }
                   : {
-                      duration: 38 + i * 0.4,
-                      delay: i * 0.06,
+                      duration: 16 + i * 0.25,
+                      delay: i * 0.03,
                       repeat: Number.POSITIVE_INFINITY,
-                      repeatDelay: 0,
-                      ease: "linear",
+                      repeatType: "mirror",
+                      ease: "easeInOut",
                     }
               }
             />
