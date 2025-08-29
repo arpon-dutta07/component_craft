@@ -1,469 +1,348 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion, AnimatePresence } from "framer-motion";
+import { User, Bot, Gamepad2, Camera, Music, Code } from "lucide-react";
 
 interface Avatar {
     id: number;
-    svg: React.ReactNode;
-    alt: string;
+    icon: React.ReactNode;
+    name: string;
+    gradient: string;
+    description: string;
 }
 
 const avatars: Avatar[] = [
     {
         id: 1,
-        svg: (
-            <svg
-                viewBox="0 0 36 36"
-                fill="none"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                aria-label="Avatar 1"
-            >
-                <mask
-                    id=":r111:"
-                    maskUnits="userSpaceOnUse"
-                    x="0"
-                    y="0"
-                    width="36"
-                    height="36"
-                >
-                    <rect width="36" height="36" rx="72" fill="#FFFFFF" />
-                </mask>
-                <g mask="url(#:r111:)">
-                    <rect width="36" height="36" fill="#ff005b" />
-                    <rect
-                        x="0"
-                        y="0"
-                        width="36"
-                        height="36"
-                        transform="translate(9 -5) rotate(219 18 18) scale(1)"
-                        fill="#ffb238"
-                        rx="6"
-                    />
-                    <g transform="translate(4.5 -4) rotate(9 18 18)">
-                        <path
-                            d="M15 19c2 1 4 1 6 0"
-                            stroke="#000000"
-                            fill="none"
-                            strokeLinecap="round"
-                        />
-                        <rect
-                            x="10"
-                            y="14"
-                            width="1.5"
-                            height="2"
-                            rx="1"
-                            stroke="none"
-                            fill="#000000"
-                        />
-                        <rect
-                            x="24"
-                            y="14"
-                            width="1.5"
-                            height="2"
-                            rx="1"
-                            stroke="none"
-                            fill="#000000"
-                        />
-                    </g>
-                </g>
-            </svg>
-        ),
-        alt: "Avatar 1",
+        icon: <User className="w-6 h-6" />,
+        name: "Professional",
+        gradient: "from-slate-600 to-slate-800",
+        description: "Clean & Corporate"
     },
     {
         id: 2,
-        svg: (
-            <svg
-                viewBox="0 0 36 36"
-                fill="none"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-            >
-                <mask
-                    id=":R4mrttb:"
-                    maskUnits="userSpaceOnUse"
-                    x="0"
-                    y="0"
-                    width="36"
-                    height="36"
-                >
-                    <rect width="36" height="36" rx="72" fill="#FFFFFF"></rect>
-                </mask>
-                <g mask="url(#:R4mrttb:)">
-                    <rect width="36" height="36" fill="#ff7d10"></rect>
-                    <rect
-                        x="0"
-                        y="0"
-                        width="36"
-                        height="36"
-                        transform="translate(5 -1) rotate(55 18 18) scale(1.1)"
-                        fill="#0a0310"
-                        rx="6"
-                    />
-                    <g transform="translate(7 -6) rotate(-5 18 18)">
-                        <path
-                            d="M15 20c2 1 4 1 6 0"
-                            stroke="#FFFFFF"
-                            fill="none"
-                            strokeLinecap="round"
-                        />
-                        <rect
-                            x="14"
-                            y="14"
-                            width="1.5"
-                            height="2"
-                            rx="1"
-                            stroke="none"
-                            fill="#FFFFFF"
-                        />
-                        <rect
-                            x="20"
-                            y="14"
-                            width="1.5"
-                            height="2"
-                            rx="1"
-                            stroke="none"
-                            fill="#FFFFFF"
-                        />
-                    </g>
-                </g>
-            </svg>
-        ),
-        alt: "Avatar 4",
+        icon: <Bot className="w-6 h-6" />,
+        name: "Tech",
+        gradient: "from-blue-500 to-cyan-600",
+        description: "Digital & Modern"
     },
     {
         id: 3,
-        svg: (
-            <svg
-                viewBox="0 0 36 36"
-                fill="none"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-            >
-                <mask
-                    id=":r11c:"
-                    maskUnits="userSpaceOnUse"
-                    x="0"
-                    y="0"
-                    width="36"
-                    height="36"
-                >
-                    <rect width="36" height="36" rx="72" fill="#FFFFFF"></rect>
-                </mask>
-                <g mask="url(#:r11c:)">
-                    <rect width="36" height="36" fill="#0a0310" />
-                    <rect
-                        x="0"
-                        y="0"
-                        width="36"
-                        height="36"
-                        transform="translate(-3 7) rotate(227 18 18) scale(1.2)"
-                        fill="#ff005b"
-                        rx="36"
-                    />
-                    <g transform="translate(-3 3.5) rotate(7 18 18)">
-                        <path d="M13,21 a1,0.75 0 0,0 10,0" fill="#FFFFFF" />
-                        <rect
-                            x="12"
-                            y="14"
-                            width="1.5"
-                            height="2"
-                            rx="1"
-                            stroke="none"
-                            fill="#FFFFFF"
-                        />
-                        <rect
-                            x="22"
-                            y="14"
-                            width="1.5"
-                            height="2"
-                            rx="1"
-                            stroke="none"
-                            fill="#FFFFFF"
-                        />
-                    </g>
-                </g>
-            </svg>
-        ),
-        alt: "Avatar 2",
+        icon: <Gamepad2 className="w-6 h-6" />,
+        name: "Gaming",
+        gradient: "from-purple-500 to-pink-600",
+        description: "Fun & Playful"
     },
     {
         id: 4,
-        svg: (
-            <svg
-                viewBox="0 0 36 36"
-                fill="none"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-            >
-                <mask
-                    id=":r1gg:"
-                    maskUnits="userSpaceOnUse"
-                    x="0"
-                    y="0"
-                    width="36"
-                    height="36"
-                >
-                    <rect width="36" height="36" rx="72" fill="#FFFFFF"></rect>
-                </mask>
-                <g mask="url(#:r1gg:)">
-                    <rect width="36" height="36" fill="#d8fcb3"></rect>
-                    <rect
-                        x="0"
-                        y="0"
-                        width="36"
-                        height="36"
-                        transform="translate(9 -5) rotate(219 18 18) scale(1)"
-                        fill="#89fcb3"
-                        rx="6"
-                    ></rect>
-                    <g transform="translate(4.5 -4) rotate(9 18 18)">
-                        <path
-                            d="M15 19c2 1 4 1 6 0"
-                            stroke="#000000"
-                            fill="none"
-                            strokeLinecap="round"
-                        ></path>
-                        <rect
-                            x="10"
-                            y="14"
-                            width="1.5"
-                            height="2"
-                            rx="1"
-                            stroke="none"
-                            fill="#000000"
-                        ></rect>
-                        <rect
-                            x="24"
-                            y="14"
-                            width="1.5"
-                            height="2"
-                            rx="1"
-                            stroke="none"
-                            fill="#000000"
-                        ></rect>
-                    </g>
-                </g>
-            </svg>
-        ),
-        alt: "Avatar 3",
+        icon: <Camera className="w-6 h-6" />,
+        name: "Creative",
+        gradient: "from-orange-500 to-red-600",
+        description: "Artistic & Visual"
+    },
+    {
+        id: 5,
+        icon: <Music className="w-6 h-6" />,
+        name: "Artist",
+        gradient: "from-green-500 to-emerald-600",
+        description: "Musical & Expressive"
+    },
+    {
+        id: 6,
+        icon: <Code className="w-6 h-6" />,
+        name: "Developer",
+        gradient: "from-indigo-500 to-purple-600",
+        description: "Logic & Innovation"
     },
 ];
 
-// Add these animation variants at the top level
-const mainAvatarVariants = {
-    initial: {
-        y: 20,
-        opacity: 0,
-    },
-    animate: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            type: "spring" as const,
-            stiffness: 200,
-            damping: 20,
-        },
-    },
-    exit: {
-        y: -20,
-        opacity: 0,
-        transition: {
-            duration: 0.2,
-        },
-    },
-};
-
-const pickerVariants = {
-    container: {
-        initial: { opacity: 0 },
-        animate: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            },
-        },
-    },
-    item: {
-        initial: {
-            y: 20,
-            opacity: 0,
-        },
-        animate: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: "spring" as const,
-                stiffness: 300,
-                damping: 20,
-            },
-        },
-    },
-};
-
-const selectedVariants = {
-    initial: {
-        opacity: 0,
-        rotate: -180,
-    },
-    animate: {
-        opacity: 1,
-        rotate: 0,
-        transition: {
-            type: "spring" as const,
-            stiffness: 200,
-            damping: 15,
-        },
-    },
-    exit: {
-        opacity: 0,
-        rotate: 180,
-        transition: {
-            duration: 0.2,
-        },
-    },
-};
+function cn(...classes: string[]) {
+    return classes.filter(Boolean).join(' ');
+}
 
 export default function AvatarPicker() {
     const [selectedAvatar, setSelectedAvatar] = useState<Avatar>(avatars[0]);
-    const [rotationCount, setRotationCount] = useState(0);
-
-    const handleAvatarSelect = (avatar: Avatar) => {
-        setRotationCount((prev) => prev + 1080); // Add 3 rotations each time
-        setSelectedAvatar(avatar);
-    };
 
     return (
-        <motion.div initial="initial" animate="animate" className="w-full">
-            <Card className="w-full max-w-md mx-auto overflow-hidden bg-gradient-to-b from-background to-muted/30">
-                <CardContent className="p-0">
-                    {/* Background header */}
+        <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-6">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.21, 1, 0.23, 1] }}
+                className="w-full max-w-md"
+            >
+                {/* Dark professional card */}
+                <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-700/50 overflow-hidden">
+                    
+                    {/* Header section */}
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
-                        animate={{
-                            opacity: 1,
-                            height: "8rem",
-                            transition: {
-                                height: {
-                                    type: "spring",
-                                    stiffness: 100,
-                                    damping: 20,
-                                },
-                            },
+                        animate={{ opacity: 1, height: "auto" }}
+                        transition={{ 
+                            duration: 0.8, 
+                            ease: [0.21, 1, 0.23, 1],
+                            delay: 0.2 
                         }}
-                        className="bg-gradient-to-r from-primary/20 to-primary/10 w-full"
-                    />
+                        className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 px-8 py-6 border-b border-slate-700/50"
+                    >
+                        <h1 className="text-2xl font-semibold text-white text-center">
+                            Profile Avatar
+                        </h1>
+                        <p className="text-slate-400 text-center mt-1 text-sm">
+                            Choose your identity
+                        </p>
+                    </motion.div>
 
-                    <div className="px-8 pb-8 -mt-16">
+                    <div className="p-8">
                         {/* Main avatar display */}
-                        <motion.div
-                            className="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 bg-background flex items-center justify-center"
-                            variants={mainAvatarVariants}
-                            layoutId="selectedAvatar"
-                        >
+                        <motion.div className="flex justify-center mb-8">
                             <motion.div
-                                className="w-full h-full flex items-center justify-center scale-[3]"
-                                animate={{
-                                    rotate: rotationCount,
+                                className={cn(
+                                    "relative w-28 h-28 rounded-full border-4 border-slate-700 shadow-2xl flex items-center justify-center text-white",
+                                    "bg-gradient-to-br",
+                                    selectedAvatar.gradient
+                                )}
+                                key={selectedAvatar.id}
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ 
+                                    type: "spring", 
+                                    stiffness: 200, 
+                                    damping: 20 
                                 }}
-                                transition={{
-                                    duration: 0.8,
-                                    ease: [0.4, 0, 0.2, 1], // Custom easing for a nice acceleration and deceleration
-                                }}
+                                whileHover={{ scale: 1.05 }}
                             >
-                                {selectedAvatar.svg}
+                                <motion.div
+                                    initial={{ rotate: -90, scale: 0 }}
+                                    animate={{ rotate: 0, scale: 1 }}
+                                    transition={{ 
+                                        type: "spring", 
+                                        stiffness: 150, 
+                                        damping: 12,
+                                        delay: 0.1
+                                    }}
+                                >
+                                    {selectedAvatar.icon}
+                                </motion.div>
+                                
+                                {/* Professional glow effect */}
+                                <motion.div
+                                    className={cn(
+                                        "absolute inset-0 rounded-full ring-4 ring-blue-500/50 ring-offset-4 ring-offset-slate-900"
+                                    )}
+                                    initial={{ opacity: 0, scale: 1.2 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                />
+
+                                {/* Subtle pulse animation */}
+                                <motion.div
+                                    className="absolute inset-0 rounded-full bg-white/10"
+                                    animate={{
+                                        scale: [1, 1.05, 1],
+                                        opacity: [0.1, 0.2, 0.1],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        ease: "easeInOut",
+                                        repeat: Infinity,
+                                    }}
+                                />
                             </motion.div>
                         </motion.div>
 
-                        {/* Username display */}
-                        <motion.div
-                            className="text-center mt-4"
-                            variants={pickerVariants.item}
-                        >
-                            <motion.h2
-                                className="text-2xl font-bold"
-                                initial={{ opacity: 0, y: 20 }}
+                        {/* Selected avatar info */}
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={selectedAvatar.id}
+                                initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.3 }}
+                                className="text-center mb-8"
                             >
-                                Me
-                            </motion.h2>
-                            <motion.p
-                                className="text-muted-foreground text-sm"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.4 }}
-                            >
-                                Select your avatar
-                            </motion.p>
+                                <h3 className="text-xl font-semibold text-white">
+                                    {selectedAvatar.name}
+                                </h3>
+                                <p className="text-slate-400 text-sm mt-1">
+                                    {selectedAvatar.description}
+                                </p>
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {/* Avatar grid */}
+                        <motion.div
+                            className="grid grid-cols-6 gap-3 mb-8"
+                            initial="initial"
+                            animate="animate"
+                            variants={{
+                                initial: { opacity: 0 },
+                                animate: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.08,
+                                        delayChildren: 0.3,
+                                    },
+                                },
+                            }}
+                        >
+                            {avatars.map((avatar) => (
+                                <motion.button
+                                    key={avatar.id}
+                                    onClick={() => setSelectedAvatar(avatar)}
+                                    className={cn(
+                                        "relative w-14 h-14 rounded-xl border-2 transition-all duration-300 flex items-center justify-center text-white",
+                                        "bg-gradient-to-br",
+                                        avatar.gradient,
+                                        selectedAvatar.id === avatar.id 
+                                            ? "border-blue-400 shadow-lg shadow-blue-500/20 ring-2 ring-blue-500/30" 
+                                            : "border-slate-700/50 hover:border-slate-600 hover:shadow-lg"
+                                    )}
+                                    variants={{
+                                        initial: {
+                                            opacity: 0,
+                                            scale: 0.6,
+                                            y: 20,
+                                        },
+                                        animate: {
+                                            opacity: 1,
+                                            scale: 1,
+                                            y: 0,
+                                            transition: {
+                                                type: "spring",
+                                                stiffness: 200,
+                                                damping: 20,
+                                            },
+                                        },
+                                    }}
+                                    whileHover={{ 
+                                        scale: 1.1,
+                                        y: -3,
+                                        transition: { duration: 0.2 }
+                                    }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <motion.div
+                                        animate={selectedAvatar.id === avatar.id ? {
+                                            rotate: [0, 10, -10, 0],
+                                        } : {}}
+                                        transition={{ 
+                                            duration: 2,
+                                            ease: "easeInOut",
+                                            repeat: selectedAvatar.id === avatar.id ? Infinity : 0,
+                                        }}
+                                    >
+                                        {avatar.icon}
+                                    </motion.div>
+
+                                    {/* Selection glow */}
+                                    {selectedAvatar.id === avatar.id && (
+                                        <motion.div
+                                            className="absolute inset-0 bg-blue-500/20 rounded-xl"
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            transition={{ duration: 0.3 }}
+                                        />
+                                    )}
+                                </motion.button>
+                            ))}
                         </motion.div>
 
-                        {/* Avatar selection */}
+                        {/* Professional dark action buttons */}
                         <motion.div
-                            className="mt-6"
-                            variants={pickerVariants.container}
+                            className="space-y-3"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6, duration: 0.4 }}
                         >
-                            <motion.div
-                                className="flex justify-center gap-4"
-                                variants={pickerVariants.container}
+                            <motion.button
+                                className="w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
+                                whileHover={{ y: -1 }}
+                                whileTap={{ scale: 0.98 }}
                             >
-                                {avatars.map((avatar) => (
-                                    <motion.button
-                                        key={avatar.id}
-                                        onClick={() =>
-                                            handleAvatarSelect(avatar)
-                                        }
-                                        className={cn(
-                                            "relative w-12 h-12 rounded-full overflow-hidden border-2",
-                                            "transition-all duration-300"
-                                        )}
-                                        variants={pickerVariants.item}
-                                        whileHover={{
-                                            y: -2,
-                                            transition: { duration: 0.2 },
-                                        }}
-                                        whileTap={{
-                                            y: 0,
-                                            transition: { duration: 0.2 },
-                                        }}
-                                        aria-label={`Select ${avatar.alt}`}
-                                        aria-pressed={
-                                            selectedAvatar.id === avatar.id
-                                        }
-                                    >
-                                        <div className="w-full h-full flex items-center justify-center">
-                                            {avatar.svg}
-                                        </div>
-                                        {selectedAvatar.id === avatar.id && (
-                                            <motion.div
-                                                className="absolute inset-0 bg-primary/20 ring-2 ring-primary ring-offset-2 ring-offset-background rounded-full"
-                                                variants={selectedVariants}
-                                                initial="initial"
-                                                animate="animate"
-                                                exit="exit"
-                                                layoutId="selectedIndicator"
-                                            />
-                                        )}
-                                    </motion.button>
-                                ))}
-                            </motion.div>
+                                Apply Selection
+                            </motion.button>
+                            
+                            <motion.button
+                                className="w-full py-3 px-6 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium rounded-xl border border-slate-700/50 hover:border-slate-600 transition-all duration-200"
+                                whileHover={{ y: -1 }}
+                                whileTap={{ scale: 0.98 }}
+                            >
+                                Reset to Default
+                            </motion.button>
                         </motion.div>
                     </div>
-                </CardContent>
-            </Card>
-        </motion.div>
+                </div>
+
+                {/* Professional status indicator */}
+                <motion.div
+                    className="text-center mt-6"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                >
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/60 backdrop-blur-sm rounded-full border border-slate-700/50 shadow-lg">
+                        <div className="w-2 h-2 bg-green-400 rounded-full">
+                            <motion.div
+                                className="w-2 h-2 bg-green-400 rounded-full"
+                                animate={{
+                                    opacity: [1, 0.3, 1],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                }}
+                            />
+                        </div>
+                        <span className="text-sm text-slate-300 font-medium">
+                            Profile Ready
+                        </span>
+                    </div>
+                </motion.div>
+            </motion.div>
+
+            {/* Subtle dark background elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.1, 0.2, 0.1],
+                    }}
+                    transition={{
+                        duration: 12,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                    }}
+                />
+                
+                <motion.div
+                    className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/5 rounded-full blur-3xl"
+                    animate={{
+                        scale: [1.2, 1, 1.2],
+                        opacity: [0.08, 0.15, 0.08],
+                    }}
+                    transition={{
+                        duration: 15,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        delay: 2,
+                    }}
+                />
+
+                {/* Grid pattern */}
+                <div className="absolute inset-0 opacity-[0.02]">
+                    <div className="h-full w-full" style={{
+                        backgroundImage: `
+                            linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
+                        `,
+                        backgroundSize: '50px 50px'
+                    }} />
+                </div>
+            </div>
+        </div>
     );
 }
