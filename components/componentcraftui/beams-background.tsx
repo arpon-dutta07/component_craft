@@ -214,7 +214,7 @@ export default function BeamsBackground({
             className={cn(
                 "relative min-h-screen w-full overflow-hidden",
                 "bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950",
-                className
+                
             )}
         >
             {/* Glassmorphism overlay */}
